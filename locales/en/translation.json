@@ -1,0 +1,82 @@
+{
+  "NAVBAR_TOP": {
+    "HOTLINE": "Hotline: 16297 (9 AM to 8 PM)",
+    "TRACK_ORDER": "Track Order",
+    "BOOK_DONATION": "Book Donation"
+  },
+  "TRACK_ORDER_INFO": {
+    "TRACK_ORDER": "Track your order information with tracking number.",
+    "TRACKING_NUMBER": "Track Your Order",
+    "CHECK_ORDER": "Check Order"
+  },
+  "NAVBAR": {
+    "CATEGORY": "Category",
+    "AUTHOR": "Author",
+    "BEST_SELLER": "Best Seller",
+    "E_BOOK": "E-Book",
+    "HOME": "Home",
+    "BOOK": "Book",
+    "ACADEMIC": "Academic Books",
+    "PUBLISHER": "Book Publisher",
+    "INSTITUTIONAL": "Institutional Orders",
+    "SCIENCE": "Science",
+    "TRANSLATION": "Translation",
+    "POETRY": "Poetry",
+    "NON-FICTION": "Non-Fiction",
+    "CHILDRENS": "Childrens",
+    "ELECTRONICS": "Electronics",
+    "BEAUTY_AND_PERSONAL_CARE": "Beauty and Personal Care",
+    "HOME_APPLIANCES": "Home Appliances",
+    "COMPUTERS_AND_ACCESSORIES": "Computers and Accessories",
+    "SPORTS_AND_FITNESS": "Sports and Fitness",
+    "TOYS_AND_GAMES": "Toys and Games",
+    "JEWELRY": "Jewelry",
+    "FASHION_ACCESSORIES": "Fashion Accessories",
+    "FOOTWEAR": "Footwear",
+    "BAGS_AND_LUGGAGE": "Bags and Luggage",
+    "DESC_1": "Explore imaginary worlds and compelling stories.",
+    "DESC_2": "Real-world knowledge, biographies, and history.",
+    "DESC_3": "Fun and educational books for youngsters.",
+    "DESC_4": "Discover the wonders of the natural world and technology."
+  },
+  "FOOTER": {
+    "GOT_QUESTIONS_CALL_US": "Got Questions? Call us",
+    "AREA": "Mirpur-10",
+    "ADDRESS": "Dhaka, Bangladesh",
+    "CUSTOMER_SUPPORT": "Customer Support",
+    "STORE_LIST": "Store List",
+    "OPENING_HOURS": "Opening Hours",
+    "CONTACT_US": "Contact Us",
+    "RETURN_POLICY": "Return Policy",
+    "CATEGORIES": "Categories",
+    "NOVELS": "Novels",
+    "POETRY_BOOKS": "Poetry Books",
+    "POLITICAL_BOOKS": "Political Books",
+    "HISTORY_BOOKS": "History Books",
+    "SUBSCRIBE_NOW": "Subscribe",
+    "OUR_CONVERSATION_IS_JUST_GETTING_STARTED": "Stay connected for updates on new books and offers",
+    "ENTER_YOUR_EMAIL": "Enter Your Email",
+    "SUBSCRIBE": "Subscribe",
+    "PAYMENT_US_ON": "Payment Methods",
+    "SITE_NAME": "Boichitryo",
+    "ALL_RIGHTS_RESERVED": "All Rights Reserved",
+    "MOBILE_NUMBER": "+880 1545 344 334"
+  },
+  "CART": {
+    "YOUR_CART": "Your Cart",
+    "REVIEW_ORDER": "Review your order",
+    "CART_IS_EMPTY": "Your cart is empty, start shopping.",
+    "CONTINUE_SHOPPING": "Continue Shopping",
+    "PROCEED_TO_CHECKOUT": "Proceed to Checkout"
+  },
+  "FEATURES_INFO": {
+    "RETURN_REFUND": "Return & Refund",
+    "MONEY_BACK_GUARANTEE": "Money back guarantee",
+    "SECURE_PAYMENT": "Secure Payment",
+    "30_OFF_BY_SUBSCRIBING": "Subscribe to get 30% off",
+    "QUALITY_SUPPORT": "Quality Support",
+    "ALWAYS_ONLINE_24_7": "Always Online 24/7",
+    "DAILY_OFFERS": "Daily Offers",
+    "20_OFF_BY_SUBSCRIBING": "Subscribe to get 20% off"
+  }
+}

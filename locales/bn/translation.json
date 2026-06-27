@@ -1,0 +1,90 @@
+{
+  "NAVBAR_TOP": {
+    "HOTLINE": "হটলাইন: ১৬২৯৭ (সকাল ৯টা – রাত ৮টা)",
+    "TRACK_ORDER": "অর্ডার ট্র্যাক করুন",
+    "BOOK_DONATION": "বই ডোনেশন"
+  },
+  "TRACK_ORDER_INFO": {
+    "TRACK_ORDER": "র‍্যাকিং নম্বর দিয়ে আপনার অর্ডার তথ্য দেখুন।",
+    "TRACKING_NUMBER": "আপনার ট্র্যাকিং নম্বর",
+    "CHECK_ORDER": "অর্ডার চেক করুন"
+  },
+  "NAVBAR": {
+    "CATEGORY": "ক্যাটাগরি",
+    "AUTHOR": "লেখক",
+    "BEST_SELLER": "সেরা বিক্রেতা",
+    "E_BOOK": "ই-বুক",
+    "HOME": "হোম",
+    "BOOK": "বই",
+    "ACADEMIC": "একাডেমিক বই",
+    "PUBLISHER": "বই প্রকাশনী",
+    "INSTITUTIONAL": "প্রাতিষ্ঠানিক অর্ডার",
+    "SCIENCE": "বিজ্ঞান",
+    "TRANSLATION": "অনুবাদ",
+    "POETRY": "কবিতা",
+    "NON-FICTION": "গল্প",
+    "CHILDRENS": "বাচ্চাদের জন্য বই",
+    "ELECTRONICS": "ইলেকট্রনিক্স",
+    "BEAUTY_AND_PERSONAL_CARE": "বিউটি অ্যান্ড পার্সোনাল কেয়ার",
+    "HOME_APPLIANCES": "হোম অ্যাপ্লায়েন্সেস",
+    "COMPUTERS_AND_ACCESSORIES": "কম্পিউটার অ্যান্ড অ্যাক্সেসরিজ",
+    "SPORTS_AND_FITNESS": "স্পোর্টস অ্যান্ড ফিটনেস",
+    "TOYS_AND_GAMES": "টয়স অ্যান্ড গেমস",
+    "JEWELRY": "জুয়েলারী",
+    "FASHION_ACCESSORIES": "ফ্যাশন অ্যাক্সেসরিজ",
+    "FOOTWEAR": "ফুটওয়্যার",
+    "BAGS_AND_LUGGAGE": "ব্যাগস অ্যান্ড লাগেজ",
+    "DESC_1": "কাল্পনিক জগত এবং আকর্ষণীয় গল্পগুলো ঘুরে দেখুন।",
+    "DESC_2": "বাস্তব জ্ঞান, জীবনী এবং ইতিহাস।",
+    "DESC_3": "ছোটদের জন্য মজার এবং শিক্ষণীয় বই।",
+    "DESC_4": "প্রকৃতি ও প্রযুক্তির বিস্ময়গুলো আবিষ্কার করুন।"
+  },
+  "HERO_SLIDER": {
+    "BEST_SELLING_BOOKS": "সর্বাধিক বিক্রিত বই",
+    "EXPLORE_MORE": "আরও দেখুন",
+    "NOVELS": "উপন্যাস",
+    "ESSAYS": "প্রবন্ধ",
+    "TRANSLATION": "অনুবাদ",
+    "TRACK_ORDER": "অর্ডার ট্র্যাক করুন"
+  },
+  "FOOTER": {
+    "GOT_QUESTIONS_CALL_US": "যেকোনো প্রয়োজনে কল করুন",
+    "AREA": "মিরপুর-১০",
+    "ADDRESS": "ঢাকা, বাংলাদেশ",
+    "CUSTOMER_SUPPORT": "গ্রাহক সেবা",
+    "STORE_LIST": "স্টোর তালিকা",
+    "OPENING_HOURS": "অফিস সময়",
+    "CONTACT_US": "যোগাযোগ করুন",
+    "RETURN_POLICY": "রিটার্ন পলিসি",
+    "NOVELS": "উপন্যাস",
+    "CATEGORIES": "ক্যাটাগরিসমূহ",
+    "POETRY_BOOKS": "কবিতার বই",
+    "POLITICAL_BOOKS": "রাজনৈতিক বই",
+    "HISTORY_BOOKS": "ইতিহাসের বই",
+    "SUBSCRIBE_NOW": "সাবস্ক্রাইব করুন",
+    "OUR_CONVERSATION_IS_JUST_GETTING_STARTED": "নতুন বই ও অফারের আপডেট পেতে যুক্ত থাকুন",
+    "ENTER_YOUR_EMAIL": "আপনার ইমেইল লিখুন",
+    "SUBSCRIBE": "সাবস্ক্রাইব",
+    "PAYMENT_US_ON": "পেমেন্ট মাধ্যম",
+    "SITE_NAME": "বৈচিত্র্য",
+    "ALL_RIGHTS_RESERVED": "সর্বস্বত্ব সংরক্ষিত",
+    "MOBILE_NUMBER": "+৮৮০ ১৪১৩ ৯৯০ ৭৬২"
+  },
+  "CART": {
+    "YOUR_CART": "আপনার কার্ট",
+    "REVIEW_ORDER": "আপনার অর্ডারের সারসংক্ষেপ",
+    "CART_IS_EMPTY": "আপনার কার্ট খালি আছে, কেনাকাটা করুন।",
+    "CONTINUE_SHOPPING": "কেনাকাটা চালিয়ে যান",
+    "PROCEED_TO_CHECKOUT": "চেকআউটের দিকে এগিয়ে যান"
+  },
+  "FEATURES_INFO": {
+    "RETURN_REFUND": "রিটার্ন ও রিফান্ড",
+    "MONEY_BACK_GUARANTEE": "মানি ব্যাক গ্যারান্টি",
+    "SECURE_PAYMENT": "নিরাপদ পেমেন্ট",
+    "30_OFF_BY_SUBSCRIBING": "সাবস্ক্রাইব করে ৩০% ছাড়",
+    "QUALITY_SUPPORT": "মানসম্মত সহায়তা",
+    "ALWAYS_ONLINE_24_7": "সর্বদা অনলাইন ২৪/৭",
+    "DAILY_OFFERS": "দৈনিক অফার",
+    "20_OFF_BY_SUBSCRIBING": "সাবস্ক্রাইব করে ২০% ছাড়"
+  }
+}
