@@ -34,7 +34,7 @@ export const Footer = () => {
                 <Mail size={18} />
               </span>
               <p className="text-[#333333] text-sm mt-1.5 mb-2">
-                readit@gmail.com
+                contact@shamagra.com
               </p>
             </div>
             <div className="flex items-start gap-1.5 text-gray-600">
