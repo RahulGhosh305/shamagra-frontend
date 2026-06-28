@@ -16,7 +16,11 @@ import { useGetContentsQuery } from "@/store/features/utilities/api";
 
 export default function Home() {
   const { t } = useTranslation();
-  const { data: contentsResponse, isLoading, isFetching } = useGetContentsQuery();
+  const {
+    data: contentsResponse,
+    isLoading,
+    isFetching,
+  } = useGetContentsQuery();
 
   // Best Selling
   const { data: bestSellingData } = useGetProductsQuery();
@@ -45,10 +49,16 @@ export default function Home() {
       <div className="container mx-auto p-4 bg-white text-[#1A1A1A]">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
           <div className="lg:col-span-3">
-            <HeroSlider bannersResponse={contentsResponse?.data?.heroSlider} isLoading={isLoading} isFetching={isFetching} />
+            <HeroSlider
+              bannersResponse={contentsResponse?.data?.heroSlider}
+              isLoading={isLoading}
+              isFetching={isFetching}
+            />
           </div>
           <div className="col-span-1 lg:col-span-1 border border-gray-100 rounded-lg relative overflow-hidden h-[25vh] sm:h-[30vh] lg:h-[38vh]">
-            <Highlight highlightsBanners={contentsResponse?.data?.appDownload} />
+            <Highlight
+              highlightsBanners={contentsResponse?.data?.appDownload}
+            />
           </div>
         </div>
         <Quickdeal />
@@ -68,7 +78,9 @@ export default function Home() {
                 href={`/category/${categoryName}`}
               />
               {categoryName === "সর্বাধিক বিক্রিত বই" ? (
-                <HorizontalBookCard products={(products as any[]).slice(0, 3)} />
+                <HorizontalBookCard
+                  products={(products as any[]).slice(0, 3)}
+                />
               ) : (
                 <VerticalBookCard products={(products as any[]).slice(0, 6)} />
               )}
@@ -118,7 +130,7 @@ export default function Home() {
         </section>
       </div>
       {/* Promotional Dialog */}
-      <PromotionalModal />
+      {/* <PromotionalModal /> */}
     </>
   );
 }
