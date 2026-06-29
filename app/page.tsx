@@ -79,10 +79,12 @@ export default function Home() {
               />
               {categoryName === "সর্বাধিক বিক্রিত বই" ? (
                 <HorizontalBookCard
-                  products={(products as any[]).slice(0, 3)}
+                  products={Array.isArray(products) ? products.slice(0, 3) : []}
                 />
               ) : (
-                <VerticalBookCard products={(products as any[]).slice(0, 6)} />
+                <VerticalBookCard
+                  products={Array.isArray(products) ? products.slice(0, 6) : []}
+                />
               )}
             </section>
           ))}
@@ -130,7 +132,7 @@ export default function Home() {
         </section>
       </div>
       {/* Promotional Dialog */}
-      {/* <PromotionalModal /> */}
+      <PromotionalModal />
     </>
   );
 }

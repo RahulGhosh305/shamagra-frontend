@@ -8,14 +8,14 @@ export class Constants {
 
   public static CLIENT_ID = "demo-client";
   public static CLIENT_SECRET = "demo-secret";
-  // public static BASE_ENDPOINT = "http://localhost:3333/back-end/";
+
+  // public static BASE_ENDPOINT = "http://api.shamagra.com/front-end/";
+
   // public static BASE_ENDPOINT = 'http://localhost:3333/front-end/';
   // Comilla
-  // public static BASE_ENDPOINT = "http://192.168.0.111:3333/front-end/";
-  public static BASE_ENDPOINT = "http://api.shamagra.com/front-end/";
+  public static BASE_ENDPOINT = "http://192.168.0.111:3333/front-end/";
   // Dhaka
   // public static BASE_ENDPOINT = "http://192.168.0.106:3333/front-end/";
-  // public static BASE_ENDPOINT = "https://api.web2swift.com/back-end/";
 
   public static AUTH_ENDPOINT = "auth";
   public static UTILITIES = "utilities";
