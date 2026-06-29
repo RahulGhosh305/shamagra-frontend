@@ -57,7 +57,7 @@ export default function Home() {
           </div>
           <div className="col-span-1 lg:col-span-1 border border-gray-100 rounded-lg relative overflow-hidden h-[25vh] sm:h-[30vh] lg:h-[38vh]">
             <Highlight
-              highlightsBanners={contentsResponse?.data?.appDownload}
+              highlightsBanners={contentsResponse?.data?.promoBanner}
             />
           </div>
         </div>
@@ -114,10 +114,10 @@ export default function Home() {
           </div>
         </section>
 
-        {contentsResponse?.data?.footerBanner?.[0]?.photo && (
+        {contentsResponse?.data?.preFBanner?.[0]?.photo && (
           <section className="lg:mt-16">
             <Image
-              src={contentsResponse?.data.footerBanner?.[0].photo}
+              src={contentsResponse?.data.preFBanner?.[0].photo}
               alt="Promotional Banner"
               width={1200}
               height={150}
@@ -132,7 +132,11 @@ export default function Home() {
         </section>
       </div>
       {/* Promotional Dialog */}
-      <PromotionalModal />
+      {
+        contentsResponse?.data?.adsBanner?.[0]?.photo && (
+          <PromotionalModal photo={contentsResponse?.data?.adsBanner?.[0]?.photo} />
+        )
+      }
     </>
   );
 }

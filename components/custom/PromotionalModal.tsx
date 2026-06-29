@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/dialog";
 import { XIcon } from "lucide-react";
 
-export const PromotionalModal = () => {
+export const PromotionalModal = ({ photo }: { photo: string }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -54,7 +54,7 @@ export const PromotionalModal = () => {
 
           <div className="w-full h-[40vh] sm:h-[60vh] relative overflow-hidden rounded-lg">
             <Image
-              src="/images/popup.jpg"
+              src={photo}
               alt="Promotional Ad"
               fill
               className=""

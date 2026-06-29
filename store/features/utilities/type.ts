@@ -26,8 +26,9 @@ export interface BannersResponse {
 export interface ContentsResponse {
   data: {
     heroSlider: Banner[];
-    appDownload: Banner[];
-    footerBanner: Banner[];
+    promoBanner: Banner[];
+    adsBanner: Banner[];
+    preFBanner: Banner[];
   };
   message: string;
   success: boolean;
