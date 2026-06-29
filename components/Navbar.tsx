@@ -130,7 +130,7 @@ export function Navbar() {
               বৈচিত্র্য
             </span> */}
             <Image
-              src="/images/boichirtyo.png"
+              src="/images/LOGO_BANGLA@2x.png"
               alt="Logo"
               width={100}
               height={100}
@@ -150,7 +150,9 @@ export function Navbar() {
                 </NavigationMenuItem>
               )}
               <NavigationMenuItem className="text-lg text-[#333333]">
-                <NavigationMenuTrigger>{t("NAVBAR.CATEGORY")}</NavigationMenuTrigger>
+                <NavigationMenuTrigger>
+                  {t("NAVBAR.CATEGORY")}
+                </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[95vw] md:w-[700px] lg:w-[900px] xl:w-[1100px] gap-4 p-6 md:grid-cols-3 lg:grid-cols-4 bg-white mt-2">
                     {booksLinks.map((component, index) => (
@@ -174,7 +176,10 @@ export function Navbar() {
                 </Link>
               </NavigationMenuItem> */}
               <NavigationMenuItem className="text-lg text-[#333333]">
-                <Link href="/bestseller" className={navigationMenuTriggerStyle()}>
+                <Link
+                  href="/bestseller"
+                  className={navigationMenuTriggerStyle()}
+                >
                   {t("NAVBAR.BEST_SELLER")}
                 </Link>
               </NavigationMenuItem>

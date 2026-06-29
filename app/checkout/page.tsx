@@ -30,7 +30,9 @@ const Checkout = () => {
   const router = useRouter();
   const [paymentMethod, setPaymentMethod] = useState("cod");
   const [openDialog, setOpenDialog] = useState(false);
-  const [orderPayload, setOrderPayload] = useState<CreateOrderRequest | null>(null);
+  const [orderPayload, setOrderPayload] = useState<CreateOrderRequest | null>(
+    null,
+  );
 
   const cartItems = useSelector((state: RootState) => state.cart.items);
   const user = useSelector((state: RootState) => state.auth.user);
@@ -91,7 +93,7 @@ const Checkout = () => {
     { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void },
   ) => {
     if (!user) {
-      toast.error("Please login to place an order", {
+      toast.error("অর্ডার করতে অনুগ্রহ করে লগইন করুন", {
         position: "bottom-right",
         style: {
           background: "#bb2124",
@@ -111,7 +113,7 @@ const Checkout = () => {
           color: "#fff",
           fontWeight: "bold",
         },
-      },);
+      });
       setSubmitting(false);
       return;
     }
@@ -129,8 +131,11 @@ const Checkout = () => {
         productTitle: item.product?.title || "",
         productCode: item.product?.productCode || "",
         quantity: item.quantity || 1,
-        unitPrice: item.pricing?.discountPrice || item.pricing?.originalPrice || 0,
-        subtotal: (item.pricing?.discountPrice || item.pricing?.originalPrice || 0) * (item.quantity || 1),
+        unitPrice:
+          item.pricing?.discountPrice || item.pricing?.originalPrice || 0,
+        subtotal:
+          (item.pricing?.discountPrice || item.pricing?.originalPrice || 0) *
+          (item.quantity || 1),
       })),
 
       shippingAddress: {
@@ -149,10 +154,25 @@ const Checkout = () => {
         email: values.email,
       },
       pricing: {
-        subtotal: cartItems.reduce((acc: number, item: any) => acc + (item.pricing?.discountPrice || item.pricing?.originalPrice || 0) * (item.quantity || 1), 0),
+        subtotal: cartItems.reduce(
+          (acc: number, item: any) =>
+            acc +
+            (item.pricing?.discountPrice || item.pricing?.originalPrice || 0) *
+              (item.quantity || 1),
+          0,
+        ),
         shippingCharge: 100, // Matching the UI
         taxAmount: 0,
-        totalAmount: cartItems.reduce((acc: number, item: any) => acc + (item.pricing?.discountPrice || item.pricing?.originalPrice || 0) * (item.quantity || 1), 0) + 100,
+        totalAmount:
+          cartItems.reduce(
+            (acc: number, item: any) =>
+              acc +
+              (item.pricing?.discountPrice ||
+                item.pricing?.originalPrice ||
+                0) *
+                (item.quantity || 1),
+            0,
+          ) + 100,
       },
       payment: {
         method: paymentMethod,
@@ -173,7 +193,7 @@ const Checkout = () => {
     (acc: number, item: any) =>
       acc +
       (item.pricing?.discountPrice || item.pricing?.originalPrice || 0) *
-      (item.quantity || 1),
+        (item.quantity || 1),
     0,
   );
   const total = subtotal + 100; // Adding 100 Tk shipping charge
@@ -440,7 +460,7 @@ const Checkout = () => {
                           <span>Subtotal</span>
                         </div>
 
-                        {cartItems?.map((item: typeof cartItems[0]) => (
+                        {cartItems?.map((item: (typeof cartItems)[0]) => (
                           <div
                             key={item._id}
                             className="flex justify-between text-gray-600"
@@ -491,10 +511,19 @@ const Checkout = () => {
 
                       {/* Payment Methods */}
                       <div className="mt-8 space-y-4">
-                        <label className={`flex items-center justify-between px-3 py-2 border rounded cursor-pointer hover:bg-gray-50 transition-colors ${paymentMethod === "cod" ? "border-orange-200 bg-orange-50/30" : "border-gray-200"}`}>
+                        <label
+                          className={`flex items-center justify-between px-3 py-2 border rounded cursor-pointer hover:bg-gray-50 transition-colors ${paymentMethod === "cod" ? "border-orange-200 bg-orange-50/30" : "border-gray-200"}`}
+                        >
                           <div className="flex items-center gap-3">
-                            <Image src="/images/cod.svg" alt="Cash On Delivery" width={35} height={30}></Image>
-                            <span className={`font-semibold ${paymentMethod === "cod" ? "text-orange-700" : "text-gray-700"}`}>
+                            <Image
+                              src="/images/cod.svg"
+                              alt="Cash On Delivery"
+                              width={35}
+                              height={30}
+                            ></Image>
+                            <span
+                              className={`font-semibold ${paymentMethod === "cod" ? "text-orange-700" : "text-gray-700"}`}
+                            >
                               Cash On Delivery
                             </span>
                           </div>
@@ -508,10 +537,19 @@ const Checkout = () => {
                           />
                         </label>
 
-                        <label className={`flex items-center justify-between px-3 py-2 border rounded cursor-pointer hover:bg-gray-50 transition-colors ${paymentMethod === "mobile" ? "border-orange-200 bg-orange-50/30" : "border-gray-200"}`}>
+                        <label
+                          className={`flex items-center justify-between px-3 py-2 border rounded cursor-pointer hover:bg-gray-50 transition-colors ${paymentMethod === "mobile" ? "border-orange-200 bg-orange-50/30" : "border-gray-200"}`}
+                        >
                           <div className="flex items-center gap-2">
-                            <Image src="/images/mobile-banking.webp" alt="Mobile Banking" width={40} height={30}></Image>
-                            <span className={`font-semibold ${paymentMethod === "mobile" ? "text-orange-700" : "text-gray-700"}`}>
+                            <Image
+                              src="/images/mobile-banking.webp"
+                              alt="Mobile Banking"
+                              width={40}
+                              height={30}
+                            ></Image>
+                            <span
+                              className={`font-semibold ${paymentMethod === "mobile" ? "text-orange-700" : "text-gray-700"}`}
+                            >
                               Mobile Banking (Bkash, Nagad, Rocket)
                             </span>
                           </div>
@@ -550,8 +588,15 @@ const Checkout = () => {
                         <div className="p-3 border rounded bg-gray-50">
                           <label className="flex items-center justify-between font-semibold text-gray-700 cursor-pointer">
                             <div className="flex items-center gap-3">
-                              <Image src="/images/online-payment.svg" alt="Direct Bank Transfer" width={35} height={30}></Image>
-                              <span className={`font-semibold ${paymentMethod === "bank" ? "text-orange-700" : "text-gray-700"}`}>
+                              <Image
+                                src="/images/online-payment.svg"
+                                alt="Direct Bank Transfer"
+                                width={35}
+                                height={30}
+                              ></Image>
+                              <span
+                                className={`font-semibold ${paymentMethod === "bank" ? "text-orange-700" : "text-gray-700"}`}
+                              >
                                 Direct Bank Transfer
                               </span>
                             </div>
@@ -597,28 +642,30 @@ const Checkout = () => {
                               <AlertDialogDescription asChild>
                                 <div className="mt-4 text-left w-full">
                                   <div className="max-h-[40vh] overflow-y-auto pr-2 space-y-3">
-                                    {cartItems.map((item: typeof cartItems[0]) => (
-                                      <div
-                                        key={item._id}
-                                        className="flex justify-between text-sm text-slate-600 border-b border-slate-100 last:border-0 pb-2"
-                                      >
-                                        <span className="flex gap-2">
-                                          {item.product?.title}{" "}
-                                          <X size={16} />
-                                          <span className="text-sm">
-                                            {item.quantity || 1}
+                                    {cartItems.map(
+                                      (item: (typeof cartItems)[0]) => (
+                                        <div
+                                          key={item._id}
+                                          className="flex justify-between text-sm text-slate-600 border-b border-slate-100 last:border-0 pb-2"
+                                        >
+                                          <span className="flex gap-2">
+                                            {item.product?.title}{" "}
+                                            <X size={16} />
+                                            <span className="text-sm">
+                                              {item.quantity || 1}
+                                            </span>
                                           </span>
-                                        </span>
-                                        <span className="font-medium text-slate-800">
-                                          ৳{" "}
-                                          {(
-                                            (item.pricing?.discountPrice ||
-                                              item.pricing?.originalPrice ||
-                                              0) * (item.quantity || 1)
-                                          ).toFixed(2)}
-                                        </span>
-                                      </div>
-                                    ))}
+                                          <span className="font-medium text-slate-800">
+                                            ৳{" "}
+                                            {(
+                                              (item.pricing?.discountPrice ||
+                                                item.pricing?.originalPrice ||
+                                                0) * (item.quantity || 1)
+                                            ).toFixed(2)}
+                                          </span>
+                                        </div>
+                                      ),
+                                    )}
                                   </div>
                                   <div className="flex justify-between items-center mt-4 pt-4 border-t border-slate-200">
                                     <span className="font-bold text-slate-800">
@@ -632,14 +679,17 @@ const Checkout = () => {
                               </AlertDialogDescription>
                             </AlertDialogHeader>
                             <AlertDialogFooter>
-                              <AlertDialogCancel className="cursor-pointer">Cancel</AlertDialogCancel>
+                              <AlertDialogCancel className="cursor-pointer">
+                                Cancel
+                              </AlertDialogCancel>
                               <AlertDialogAction
                                 className="bg-[#006680]! hover:bg-[#004d61]! text-white cursor-pointer"
                                 disabled={isCreatingOrder}
                                 onClick={async () => {
                                   if (!orderPayload) return;
                                   try {
-                                    const orderResData: any = await createOrder(orderPayload).unwrap();
+                                    const orderResData: any =
+                                      await createOrder(orderPayload).unwrap();
 
                                     dispatch(clearCart());
                                     setOpenDialog(false);
@@ -658,7 +708,7 @@ const Checkout = () => {
                                       const printContent = `
                                         <html>
                                           <head>
-                                            <title>Invoice - Boichitryo</title>
+                                            <title>Invoice - Shamagra</title>
                                             <style>
                                               @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap');
                                               @media print { @page { margin: 0; } body { margin: 1cm auto; } } body { font-family: 'Hind Siliguri', sans-serif; padding: 40px; color: #333; max-width: 800px; margin: auto; }
@@ -677,7 +727,8 @@ const Checkout = () => {
                                           </head>
                                           <body>
                                             <div class="header" style="position: relative;">
-                                              <h1>Invoice - Boichitryo</h1><div style="position: absolute; top: 0; right: 0; font-size: 14px; color: #666; font-weight: bold; text-align: right;">${new Date().toLocaleString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' })}</div>
+                                              <img src="/images/LOGO_BANGLA@2x.png" alt="Shamagra Logo" style="max-width: 160px; margin-bottom: 12px;" />
+                                              <h1>Invoice</h1><div style="position: absolute; top: 0; right: 0; font-size: 14px; color: #666; font-weight: bold; text-align: right;">${new Date().toLocaleString("en-GB", { day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit" })}</div>
                                               <p>অর্ডার ইনভয়েস / Order Invoice</p>
                                             </div>
                                             
@@ -687,9 +738,9 @@ const Checkout = () => {
                                                 <p><strong>ফোন:</strong> ${orderPayload.shippingAddress.phone}</p>
                                               </div>
                                               <div class="text-right">
-                                                <p><strong>অর্ডার আইডি:</strong> #${orderResData?.data?.orderNumber || 'N/A'}</p>
+                                                <p><strong>অর্ডার আইডি:</strong> #${orderResData?.data?.orderNumber || "N/A"}</p>
                                                 
-                                                <p><strong>পেমেন্ট:</strong> ${orderPayload.payment.method === 'cod' ? 'ক্যাশ অন ডেলিভারি' : 'মোবাইল ব্যাংকিং'}</p>
+                                                <p><strong>পেমেন্ট:</strong> ${orderPayload.payment.method === "cod" ? "ক্যাশ অন ডেলিভারি" : "মোবাইল ব্যাংকিং"}</p>
                                               </div>
                                             </div>
                                             
@@ -702,13 +753,17 @@ const Checkout = () => {
                                                 </tr>
                                               </thead>
                                               <tbody>
-                                                ${cartItems.map((item: any) => `
+                                                ${cartItems
+                                                  .map(
+                                                    (item: any) => `
                                                   <tr>
                                                     <td>${item.product?.title || "Book"}</td>
                                                     <td class="text-center">${item.quantity || 1}</td>
-                                                    <td class="text-right">৳ ${((item.pricing?.discountPrice || item.pricing?.originalPrice || 0) * (item.quantity || 1))}</td>
+                                                    <td class="text-right">৳ ${(item.pricing?.discountPrice || item.pricing?.originalPrice || 0) * (item.quantity || 1)}</td>
                                                   </tr>
-                                                `).join('')}
+                                                `,
+                                                  )
+                                                  .join("")}
                                               </tbody>
                                               <tfoot>
                                                 <tr>
@@ -725,10 +780,12 @@ const Checkout = () => {
                                         </html>
                                       `;
 
-                                      const iframe = document.createElement('iframe');
-                                      iframe.style.display = 'none';
+                                      const iframe =
+                                        document.createElement("iframe");
+                                      iframe.style.display = "none";
                                       document.body.appendChild(iframe);
-                                      const iframeDoc = iframe.contentWindow?.document;
+                                      const iframeDoc =
+                                        iframe.contentWindow?.document;
 
                                       if (iframeDoc) {
                                         iframeDoc.write(printContent);
@@ -738,36 +795,51 @@ const Checkout = () => {
                                           iframe.contentWindow?.focus();
                                           iframe.contentWindow?.print();
                                           setTimeout(() => {
-                                            if (document.body.contains(iframe)) {
+                                            if (
+                                              document.body.contains(iframe)
+                                            ) {
                                               document.body.removeChild(iframe);
                                             }
                                           }, 2000); // Remove iframe after printing
                                         };
                                       }
                                     } catch (printError) {
-                                      console.error("Failed to generate print invoice", printError);
+                                      console.error(
+                                        "Failed to generate print invoice",
+                                        printError,
+                                      );
                                     }
 
                                     router.push("/");
                                   } catch (error) {
                                     let errorMessage = "Order failed";
-                                    if (error && typeof error === "object" && "data" in error) {
-                                      const errorData = (error as Record<string, unknown>).data;
-                                      if (errorData && typeof errorData === "object" && "message" in errorData) {
-                                        errorMessage = String((errorData as Record<string, unknown>).message);
+                                    if (
+                                      error &&
+                                      typeof error === "object" &&
+                                      "data" in error
+                                    ) {
+                                      const errorData = (
+                                        error as Record<string, unknown>
+                                      ).data;
+                                      if (
+                                        errorData &&
+                                        typeof errorData === "object" &&
+                                        "message" in errorData
+                                      ) {
+                                        errorMessage = String(
+                                          (errorData as Record<string, unknown>)
+                                            .message,
+                                        );
                                       }
                                     }
-                                    toast.error(
-                                      errorMessage,
-                                      {
-                                        position: "bottom-right",
-                                        style: {
-                                          background: "#bb2124",
-                                          color: "#fff",
-                                          fontWeight: "bold",
-                                        },
+                                    toast.error(errorMessage, {
+                                      position: "bottom-right",
+                                      style: {
+                                        background: "#bb2124",
+                                        color: "#fff",
+                                        fontWeight: "bold",
                                       },
-                                    );
+                                    });
                                   }
                                 }}
                               >

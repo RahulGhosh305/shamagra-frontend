@@ -13,10 +13,10 @@ export const Footer = () => {
         <div className="space-y-4">
           <div className="flex items-center gap-2">
             <Image
-              src="/images/boichirtyo.png"
+              src="/images/LOGO_BANGLA@2x.png"
               alt="Logo"
-              width={140}
-              height={100}
+              width={160}
+              height={120}
             />
           </div>
 

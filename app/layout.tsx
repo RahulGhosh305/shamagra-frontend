@@ -22,8 +22,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title:
-    "Boichitryo — Online Shopping Store | বৈচিত্র্য — কেনাকাটার সহজ ঠিকানা",
+  title: "Shamagra — Online Shopping Store | সমগ্র — কেনাকাটার সহজ ঠিকানা",
   description:
     "বাংলাদেশের সেরা অনলাইন বইয়ের দোকান। উপন্যাস, কবিতা, অনুবাদ, বিজ্ঞান ও আরো অনেক ক্যাটাগরির বই কিনুন সহজেই।",
 };
