@@ -175,14 +175,14 @@ export function Navbar() {
                   {t("NAVBAR.BOOK")}
                 </Link>
               </NavigationMenuItem> */}
-              <NavigationMenuItem className="text-lg text-[#333333]">
+              {/* <NavigationMenuItem className="text-lg text-[#333333]">
                 <Link
                   href="/bestseller"
                   className={navigationMenuTriggerStyle()}
                 >
                   {t("NAVBAR.BEST_SELLER")}
                 </Link>
-              </NavigationMenuItem>
+              </NavigationMenuItem> */}
               <NavigationMenuItem className="text-lg text-[#333333]">
                 <Link href="/e-book" className={navigationMenuTriggerStyle()}>
                   {t("NAVBAR.E_BOOK")}

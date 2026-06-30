@@ -242,7 +242,9 @@ const BookDetails = () => {
                 Stock Availability
               </span>
             </div>
-
+            <p className="text-gray-500 leading-relaxed text-sm">
+              {book?.description?.short}
+            </p>
             <div className="flex items-center gap-2 mt-2">
               <div className="flex text-gray-500">লেখক : </div>
               <span className="text-sm text-orange-400">

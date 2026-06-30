@@ -158,7 +158,7 @@ const Checkout = () => {
           (acc: number, item: any) =>
             acc +
             (item.pricing?.discountPrice || item.pricing?.originalPrice || 0) *
-              (item.quantity || 1),
+            (item.quantity || 1),
           0,
         ),
         shippingCharge: 100, // Matching the UI
@@ -170,7 +170,7 @@ const Checkout = () => {
               (item.pricing?.discountPrice ||
                 item.pricing?.originalPrice ||
                 0) *
-                (item.quantity || 1),
+              (item.quantity || 1),
             0,
           ) + 100,
       },
@@ -193,7 +193,7 @@ const Checkout = () => {
     (acc: number, item: any) =>
       acc +
       (item.pricing?.discountPrice || item.pricing?.originalPrice || 0) *
-        (item.quantity || 1),
+      (item.quantity || 1),
     0,
   );
   const total = subtotal + 100; // Adding 100 Tk shipping charge
@@ -585,7 +585,7 @@ const Checkout = () => {
                           </div>
                         )}
 
-                        <div className="p-3 border rounded bg-gray-50">
+                        {/* <div className="p-3 border rounded bg-gray-50">
                           <label className="flex items-center justify-between font-semibold text-gray-700 cursor-pointer">
                             <div className="flex items-center gap-3">
                               <Image
@@ -615,7 +615,7 @@ const Checkout = () => {
                         <p className="text-xs text-gray-500 mt-2 leading-relaxed">
                           With Bank System on Proccess.
                           <span className="text-red-500">*</span>
-                        </p>
+                        </p> */}
                         <button
                           type="submit"
                           className="w-full flex items-center justify-center gap-2 mt-10 bg-[#006680] hover:bg-[#004d61] text-white py-4 rounded-xl font-bold text-lg cursor-pointer shadow-xl hover:-translate-y-1 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
@@ -754,16 +754,16 @@ const Checkout = () => {
                                               </thead>
                                               <tbody>
                                                 ${cartItems
-                                                  .map(
-                                                    (item: any) => `
+                                          .map(
+                                            (item: any) => `
                                                   <tr>
                                                     <td>${item.product?.title || "Book"}</td>
                                                     <td class="text-center">${item.quantity || 1}</td>
                                                     <td class="text-right">৳ ${(item.pricing?.discountPrice || item.pricing?.originalPrice || 0) * (item.quantity || 1)}</td>
                                                   </tr>
                                                 `,
-                                                  )
-                                                  .join("")}
+                                          )
+                                          .join("")}
                                               </tbody>
                                               <tfoot>
                                                 <tr>
