@@ -54,7 +54,6 @@ export const Footer = () => {
             {t("FOOTER.CUSTOMER_SUPPORT")}
           </h4>
           <ul className="space-y-3 text-[#333333]">
-            <FooterLink label={t("FOOTER.STORE_LIST")} />
             <FooterLink label={t("FOOTER.OPENING_HOURS")} />
             <FooterLink label={t("FOOTER.CONTACT_US")} />
             <FooterLink label={t("FOOTER.RETURN_POLICY")} />
@@ -131,11 +130,16 @@ export const Footer = () => {
       {/* Bottom Bar */}
       <div className="mx-auto mt-6 pt-4 border-t border-gray-100 flex flex-col md:flex-row justify-center items-center gap-6">
         <p className="text-sm text-gray-800 flex items-center">
-          <span className="mr-1">©২০২৬</span>
-          <span className="text-[#FF7A64] font-medium cursor-pointer">
+          <span className="inline-flex items-center mr-1">
+            <span className="relative top-px">&copy;</span>
+            <span className="ml-1">২০২৬</span>
+          </span>
+
+          <span className="text-[#b90303] font-medium cursor-pointer">
             {t("FOOTER.SITE_NAME")}
           </span>
-          , {t("FOOTER.ALL_RIGHTS_RESERVED")}
+
+          <span className="ml-1">। {t("FOOTER.ALL_RIGHTS_RESERVED")}</span>
         </p>
       </div>
     </footer>

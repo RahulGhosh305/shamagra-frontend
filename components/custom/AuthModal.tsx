@@ -215,7 +215,8 @@ export function AuthModal() {
           <AlertDialogHeader>
             <AlertDialogTitle>Logout</AlertDialogTitle>
             <AlertDialogDescription>
-              Are you sure you want to log out of your account?
+              {/* Are you sure you want to log out of your account? */}
+              আপনি কি সত্যিই লগ আউট করতে চান?
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>

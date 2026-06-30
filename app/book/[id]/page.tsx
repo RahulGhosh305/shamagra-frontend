@@ -255,19 +255,35 @@ const BookDetails = () => {
 
           <div className="flex items-center gap-2">
             <div className="flex text-orange-400 gap-1 cursor-pointer">
-              {[1, 2, 3, 4, 5].map((star) => (
-                <Star
-                  key={star}
-                  size={20}
-                  className={`transition-colors ${star <= (hoveredStar || Math.round(book?.rating?.averageScore || 0)) ? "fill-orange-400 text-orange-400" : "text-gray-300"}`}
-                  onMouseEnter={() => setHoveredStar(star)}
-                  onMouseLeave={() => setHoveredStar(0)}
-                  onClick={() => handleRatingSubmit(star)}
-                />
-              ))}
+              {[1, 2, 3, 4, 5].map((star) => {
+                const currentScore = hoveredStar || Number(book?.rating?.averageScore || 0);
+                let fillPercentage = 0;
+                if (currentScore >= star) {
+                  fillPercentage = 100;
+                } else if (currentScore > star - 1) {
+                  fillPercentage = (currentScore - (star - 1)) * 100;
+                }
+
+                return (
+                  <div
+                    key={star}
+                    className="relative cursor-pointer"
+                    onMouseEnter={() => setHoveredStar(star)}
+                    onMouseLeave={() => setHoveredStar(0)}
+                    onClick={() => handleRatingSubmit(star)}
+                  >
+                    <Star size={20} className="text-gray-300" />
+                    <Star
+                      size={20}
+                      className="absolute top-0 left-0 fill-orange-400 text-orange-400 transition-all"
+                      style={{ clipPath: `inset(0 ${100 - fillPercentage}% 0 0)` }}
+                    />
+                  </div>
+                );
+              })}
             </div>
             <span className="text-gray-500 text-sm">
-              ({book?.rating?.totalReviews || 0} Customer Reviews)
+              ({book?.rating?.totalReviews || 0} Reviews)
               {(book?.rating?.averageScore || 0) > 0 &&
                 ` - Avg: ${(book?.rating?.averageScore || 0).toFixed(1)}`}
             </span>

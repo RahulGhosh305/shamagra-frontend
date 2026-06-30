@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useGetProductsQuery } from "@/store/features/product/api";
 import { motion } from "framer-motion";
+import { Star } from "lucide-react";
 
 interface HorizontalBookCardProps {
   products?: any[];
@@ -41,22 +42,11 @@ const HorizontalBookCard = ({ products }: HorizontalBookCardProps = {}) => {
 
           {/* Product Info */}
           <div className="flex flex-col grow justify-between py-1">
-            <div className="space-y-2">
-              <div className="flex justify-between items-center mb-2">
-                <span className="min-w-15 text-center z-10 bg-[#006680] text-white text-xs font-bold py-0.5 px-2 rounded-full">
-                  {product?.specifications?.category?.name || "Book"}
-                </span>
-                <div className="flex items-center gap-1 text-sm">
-                  <span className="text-yellow-400">★</span>
-                  <span className="font-bold text-[#002B44]">{product?.ratings?.averageRating || "0"}</span>
-                  <span className="text-gray-600 text-xs">({product?.ratings?.totalRatings || "0"})</span>
-                </div>
-              </div>
-
-              <h3 className="text-lg font-bold text-[#333333] leading-tight mb-1">
+            <div className="flex flex-col gap-2">
+              <h3 className="text-lg font-bold text-[#333333] leading-tight mt-1">
                 {product?.product?.title || "No Title"}
               </h3>
-              <p className="text-[#333333] text-sm mb-4">
+              <p className="text-gray-600 text-sm mb-2">
                 {product?.product?.author || "Unknown"}
               </p>
 
@@ -70,19 +60,40 @@ const HorizontalBookCard = ({ products }: HorizontalBookCardProps = {}) => {
                   product?.pricing?.discountPrice &&
                   product?.pricing?.discountPrice !==
                   product?.pricing?.originalPrice && (
-                    <span className="text-[#333333] line-through text-lg font-semibold">
+                    <span className="text-gray-400 line-through text-lg font-semibold">
                       {product?.pricing?.currency || "৳"}
                       {product?.pricing?.originalPrice}
                     </span>
                   )}
               </div>
               <div className="flex items-center gap-2">
-                <div className="flex text-orange-400">★★★★☆</div>
+                <div className="flex text-orange-400 gap-0.5">
+                  {[1, 2, 3, 4, 5].map((star) => {
+                    const currentScore = Number(product?.rating?.averageScore || 0);
+                    let fillPercentage = 0;
+                    if (currentScore >= star) {
+                      fillPercentage = 100;
+                    } else if (currentScore > star - 1) {
+                      fillPercentage = (currentScore - (star - 1)) * 100;
+                    }
+
+                    return (
+                      <div key={star} className="relative">
+                        <Star size={16} className="text-gray-300" />
+                        <Star
+                          size={16}
+                          className="absolute top-0 left-0 fill-orange-400 text-orange-400"
+                          style={{ clipPath: `inset(0 ${100 - fillPercentage}% 0 0)` }}
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
                 <span className="text-gray-600 text-sm">
-                  ({product?.ratings?.totalRatings} Customer Reviews)
+                  ({product?.rating?.totalReviews || 0} Reviews)
                 </span>
               </div>
-              <span className="text-[#2fb140] font-bold text-sm mt-6">
+              <span className="text-[#2fb140] font-bold text-sm mt-2">
                 Stock Availability
               </span>
             </div>

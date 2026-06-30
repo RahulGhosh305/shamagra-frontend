@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Headset, Heart } from "lucide-react";
+import { Menu, X, Headset, Heart, Dot } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -41,64 +41,24 @@ export function Navbar() {
 
   const booksLinks: { title: string; href: string; description: string }[] = [
     {
-      title: t("NAVBAR.ACADEMIC"),
-      href: "/books/fiction",
+      title: t("NAVBAR.BOOK"),
+      href: "/",
       description: t("NAVBAR.DESC_1"),
     },
     {
-      title: t("NAVBAR.POETRY"),
-      href: "/books/non-fiction",
+      title: t("NAVBAR.ELECTRONICS_AND_GADGETS"),
+      href: "/electronics-gadgets",
       description: t("NAVBAR.DESC_2"),
     },
     {
-      title: t("NAVBAR.TRANSLATION"),
-      href: "/books/childrens",
+      title: t("NAVBAR.TRENDY_ACCESSORIES"),
+      href: "/trendy-accessories",
       description: t("NAVBAR.DESC_3"),
     },
     {
-      title: t("NAVBAR.SCIENCE"),
-      href: "/books/science",
-      description: t("NAVBAR.DESC_4"),
-    },
-    {
-      title: t("NAVBAR.ACADEMIC"),
-      href: "/books/fiction",
-      description: t("NAVBAR.DESC_1"),
-    },
-    {
-      title: t("NAVBAR.POETRY"),
-      href: "/books/non-fiction",
-      description: t("NAVBAR.DESC_2"),
-    },
-    {
-      title: t("NAVBAR.TRANSLATION"),
-      href: "/books/childrens",
+      title: t("NAVBAR.BEAUTY_AND_PERSONAL_CARE"),
+      href: "/beauty-and-personal-care",
       description: t("NAVBAR.DESC_3"),
-    },
-    {
-      title: t("NAVBAR.SCIENCE"),
-      href: "/books/science",
-      description: t("NAVBAR.DESC_4"),
-    },
-    {
-      title: t("NAVBAR.ACADEMIC"),
-      href: "/books/fiction",
-      description: t("NAVBAR.DESC_1"),
-    },
-    {
-      title: t("NAVBAR.POETRY"),
-      href: "/books/non-fiction",
-      description: t("NAVBAR.DESC_2"),
-    },
-    {
-      title: t("NAVBAR.TRANSLATION"),
-      href: "/books/childrens",
-      description: t("NAVBAR.DESC_3"),
-    },
-    {
-      title: t("NAVBAR.SCIENCE"),
-      href: "/books/science",
-      description: t("NAVBAR.DESC_4"),
     },
   ];
 
@@ -122,7 +82,7 @@ export function Navbar() {
           </div>
         </div>
       </div>
-      <div className="container mx-auto px-4 flex h-16 items-center justify-between">
+      <div className="container relative mx-auto px-4 flex h-16 items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center space-x-2">
@@ -140,7 +100,7 @@ export function Navbar() {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex flex-1 justify-center space-x-8">
-          <NavigationMenu>
+          <NavigationMenu className="static">
             <NavigationMenuList>
               {pathname !== "/" && (
                 <NavigationMenuItem className="text-lg text-[#333333]">
@@ -154,7 +114,7 @@ export function Navbar() {
                   {t("NAVBAR.CATEGORY")}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[95vw] md:w-[700px] lg:w-[900px] xl:w-[1100px] gap-4 p-6 md:grid-cols-3 lg:grid-cols-4 bg-white mt-2">
+                  <ul className="grid w-[95vw] md:w-[800px] lg:w-[1200px] xl:w-[1490px] gap-4 p-6 md:grid-cols-3 lg:grid-cols-4 bg-white mt-2">
                     {booksLinks.map((component, index) => (
                       <ListItem
                         key={`${component.title}-${index}`}
@@ -321,8 +281,8 @@ const ListItem = React.forwardRef<
           )}
           {...props}
         >
-          <div className="text-md font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+          <div className="text-md font-medium leading-none flex gap-0.5"> <Dot size={15} /> {title}</div>
+          <p className="line-clamp-2 ml-4 text-sm leading-snug text-muted-foreground">
             {children}
           </p>
         </a>

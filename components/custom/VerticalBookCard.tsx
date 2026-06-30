@@ -149,8 +149,8 @@ const VerticalBookCard = ({
               </div>
               <div className="gap-1 text-sm flex items-center justify-center">
                 <span className="text-yellow-400">★</span>
-                <span className="font-bold text-[#002B44]">{book?.product?.ratings?.averageRating || "0"}</span>
-                <span className="text-gray-600 text-xs">({book?.product?.ratings?.totalRatings || "0"})</span>
+                <span className="font-bold text-[#002B44]">{book?.rating?.averageScore?.toFixed(1) || "0"}</span>
+                <span className="text-gray-600 text-xs">({book?.rating?.totalReviews || "0"})</span>
               </div>
             </div>
           </div>
