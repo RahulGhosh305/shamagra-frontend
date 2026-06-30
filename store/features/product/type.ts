@@ -37,7 +37,7 @@ export interface WorkspaceProduct {
   specifications?: {
     format?: string;
     totalPages?: string;
-    publishDate?: string;
+    publishYear?: string;
     language?: string;
     originCountry?: string;
     dimensions?: string;

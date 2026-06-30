@@ -43,14 +43,10 @@ const Checkout = () => {
   const initialValues = {
     firstName: "",
     lastName: "",
-    companyName: "",
-    country: "",
+    country: "Bangladesh",
     district: "",
     thana: "",
     streetAddress: "",
-    apartment: "",
-    city: "",
-    state: "",
     zipCode: "",
     phone: "",
     email: "",
@@ -65,26 +61,18 @@ const Checkout = () => {
     lastName: Yup.string()
       .min(2, "Last name must be at least 2 characters")
       .required("Last name is required"),
-    companyName: Yup.string(),
-    country: Yup.string().required("Country is required"),
     district: Yup.string().required("District is required"),
-    thana: Yup.string().required("Thana/Area is required"),
+    thana: Yup.string().required("Town/Thana/Area is required"),
     streetAddress: Yup.string()
       .min(5, "Street address must be at least 5 characters")
       .required("Street address is required"),
-    apartment: Yup.string(),
-    city: Yup.string()
-      .min(2, "City must be at least 2 characters")
-      .required("City is required"),
-    state: Yup.string()
-      .min(2, "State must be at least 2 characters")
-      .required("State is required"),
-    zipCode: Yup.string()
-      .matches(/^\d{4,6}$/, "ZIP code must be 4-6 digits")
-      .required("ZIP code is required"),
+    zipCode: Yup.string().matches(/^\d{4,6}$/, "ZIP code must be 4-6 digits"),
     email: Yup.string()
       .email("Invalid email address")
       .required("Email is required"),
+    phone: Yup.string()
+      .matches(/^[0-9]{11}$/, "Phone number must be 11 digits")
+      .required("Phone number is required"),
     orderNotes: Yup.string(),
   });
 
@@ -141,14 +129,10 @@ const Checkout = () => {
       shippingAddress: {
         firstName: values.firstName,
         lastName: values.lastName,
-        companyName: values.companyName || null,
         streetAddress: values.streetAddress,
-        apartment: values.apartment || null,
-        city: values.city,
         district: values.district,
         thana: values.thana,
         country: values.country,
-        state: values.state,
         zipCode: values.zipCode,
         phone: values.phone,
         email: values.email,
@@ -263,28 +247,50 @@ const Checkout = () => {
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Company Name (optional)
+                        Email Address<span className="text-red-500">*</span>
                       </label>
                       <Field
-                        type="text"
-                        name="companyName"
+                        type="email"
+                        name="email"
+                        placeholder="Email"
                         className="w-full p-2.5 border border-gray-300 rounded focus:ring-2 focus:ring-gray-500 focus:outline-none"
                       />
+                      <ErrorMessage
+                        name="email"
+                        component="div"
+                        className="text-red-500 text-sm mt-1"
+                      />
                     </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        Phone<span className="text-red-500">*</span>
+                      </label>
+                      <Field
+                        type="tel"
+                        name="phone"
+                        placeholder="Phone"
+                        className="w-full p-2.5 border border-gray-300 rounded focus:ring-2 focus:ring-gray-500 focus:outline-none"
+                      />
+                      <ErrorMessage
+                        name="phone"
+                        component="div"
+                        className="text-red-500 text-sm mt-1"
+                      />
+                    </div>
+
+
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1">
                         Country<span className="text-red-500">*</span>
                       </label>
                       <Field
-                        as="select"
+                        type="text"
                         name="country"
-                        className="w-full p-2.5 border border-gray-300 rounded focus:ring-2 focus:ring-gray-500 focus:outline-none bg-white"
-                      >
-                        <option value="">Select A Country</option>
-                        <option value="Bangladesh">Bangladesh</option>
-                        <option value="USA">USA</option>
-                      </Field>
+                        disabled={true}
+                        className="w-full p-2.5 border border-gray-300 rounded focus:ring-2 focus:ring-gray-500 focus:outline-none bg-gray-100 text-gray-500"
+                      />
                       <ErrorMessage
                         name="country"
                         component="div"
@@ -310,7 +316,7 @@ const Checkout = () => {
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Thana/Area<span className="text-red-500">*</span>
+                        Town/Thana/Area<span className="text-red-500">*</span>
                       </label>
                       <Field
                         type="text"
@@ -319,6 +325,22 @@ const Checkout = () => {
                       />
                       <ErrorMessage
                         name="thana"
+                        component="div"
+                        className="text-red-500 text-sm mt-1"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        ZIP Code
+                      </label>
+                      <Field
+                        type="text"
+                        name="zipCode"
+                        className="w-full p-2.5 border border-gray-300 rounded focus:ring-2 focus:ring-gray-500 focus:outline-none"
+                      />
+                      <ErrorMessage
+                        name="zipCode"
                         component="div"
                         className="text-red-500 text-sm mt-1"
                       />
@@ -339,97 +361,11 @@ const Checkout = () => {
                         component="div"
                         className="text-red-500 text-sm mt-1"
                       />
-
-                      <Field
-                        type="text"
-                        name="apartment"
-                        placeholder="Apartment, suite, unit, etc. (optional)"
-                        className="w-full p-2.5 border border-gray-300 rounded focus:ring-2 focus:ring-gray-500 focus:outline-none"
-                      />
                     </div>
 
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Town / City<span className="text-red-500">*</span>
-                      </label>
-                      <Field
-                        type="text"
-                        name="city"
-                        className="w-full p-2.5 border border-gray-300 rounded focus:ring-2 focus:ring-gray-500 focus:outline-none"
-                      />
-                      <ErrorMessage
-                        name="city"
-                        component="div"
-                        className="text-red-500 text-sm mt-1"
-                      />
-                    </div>
 
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        State / Division
-                        <span className="text-red-500">*</span>
-                      </label>
-                      <Field
-                        type="text"
-                        name="state"
-                        className="w-full p-2.5 border border-gray-300 rounded focus:ring-2 focus:ring-gray-500 focus:outline-none"
-                      />
-                      <ErrorMessage
-                        name="state"
-                        component="div"
-                        className="text-red-500 text-sm mt-1"
-                      />
-                    </div>
 
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        ZIP Code<span className="text-red-500">*</span>
-                      </label>
-                      <Field
-                        type="text"
-                        name="zipCode"
-                        className="w-full p-2.5 border border-gray-300 rounded focus:ring-2 focus:ring-gray-500 focus:outline-none"
-                      />
-                      <ErrorMessage
-                        name="zipCode"
-                        component="div"
-                        className="text-red-500 text-sm mt-1"
-                      />
-                    </div>
 
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Phone
-                      </label>
-                      <Field
-                        type="tel"
-                        name="phone"
-                        placeholder="Phone"
-                        className="w-full p-2.5 border border-gray-300 rounded focus:ring-2 focus:ring-gray-500 focus:outline-none"
-                      />
-                      <ErrorMessage
-                        name="phone"
-                        component="div"
-                        className="text-red-500 text-sm mt-1"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Email Address<span className="text-red-500">*</span>
-                      </label>
-                      <Field
-                        type="email"
-                        name="email"
-                        placeholder="Email"
-                        className="w-full p-2.5 border border-gray-300 rounded focus:ring-2 focus:ring-gray-500 focus:outline-none"
-                      />
-                      <ErrorMessage
-                        name="email"
-                        component="div"
-                        className="text-red-500 text-sm mt-1"
-                      />
-                    </div>
 
                     <div>
                       <label className="block text-sm font-medium text-slate-500 mb-1">

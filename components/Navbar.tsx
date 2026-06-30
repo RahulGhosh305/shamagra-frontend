@@ -86,9 +86,6 @@ export function Navbar() {
         {/* Logo */}
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center space-x-2">
-            {/* <span className="font-bold sm:inline-block text-4xl">
-              বৈচিত্র্য
-            </span> */}
             <Image
               src="/images/LOGO_BANGLA@2x.png"
               alt="Logo"
